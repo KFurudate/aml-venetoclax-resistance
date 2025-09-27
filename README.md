@@ -70,12 +70,49 @@ summary = summarize_bootstrap_coefficients(
 )
 ```
 
-### Data Assumptions
+#### Data Assumptions
 
 - **X**: A numeric matrix where  
   - Rows represent **samples**  
   - Columns represent **features (genes)**  
-  - Values are **Transcripts Per Million (TPM)**, then **log-transformed**, and **Z-score standardized** across genes.
+  - Values are **Transcripts Per Million (TPM)**, then **log-transformed**, and **Z-score standardized** per gene across samples.
+
+- **y**: A binary list or array of labels (`0` and `1`), corresponding to the sample classes.
+
+---
+
+#### Sample Data
+
+- All sample data in this repository are **synthetic**, generated via **random numbers** (NumPy) with a fixed seed (`42`) for reproducibility.  
+  *No real biological or patient data are included.*
+
+- Files are located in the `data/` folder:
+  - `data/X_sample.csv` — Processed feature matrix (rows = samples, columns = genes).  
+    Values are TPM-normalized, then log-transformed, and **Z-score standardized per gene across samples**.
+  - `data/y_sample.csv` — Labels (`sample_id`, `label`) with binary classes `0/1`.
+
+**Shapes**
+- `X_sample.csv`: 30 × 50
+- `y_sample.csv`: 30 × 2 (`sample_id`, `label`)
+
+---
+
+#### Quick Load Example
+
+```python
+import pandas as pd
+
+# Load X (processed) with sample IDs as index
+X = pd.read_csv("data/X_processed_sample.csv", index_col=0)
+
+# Load y and align to X.index
+y_df = pd.read_csv("data/y_sample.csv")  # columns: sample_id, label
+y = y_df.set_index("sample_id").loc[X.index, "label"].values
+
+print(X.shape, y.shape)
+print(X.head(3))
+print(y[:10])
+```
 
 - **y**: A binary list or array of labels (`0` and `1`), corresponding to the sample classes.
 
