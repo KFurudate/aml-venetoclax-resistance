@@ -39,9 +39,12 @@ Summarizes bootstrap results:
 
 ```python
 # To run the code:
-n_bootstrap = 10000
-
 gene_names = X.columns
+n_bootstrap = 10000
+epsilon = 0.01
+random_state = 2025
+n_jobs = -1
+threshold_ratio = 0.8
 
 params = {
     'C': 10,
@@ -54,16 +57,16 @@ coef_matrix, oob_indices = fit_lasso_logistic_bootstrap(
     y, 
     gene_names=gene_names,        
     n_bootstrap=n_bootstrap,
-    epsilon=0.01,
-    n_jobs=-1,               
-    random_state=42,
+    epsilon=epsilon,
+    n_jobs=n_jobs,               
+    random_state=random_state,
     params=params
 )
 
 summary = summarize_bootstrap_coefficients(
     coef_matrix=coef_matrix,
     gene_names=gene_names,
-    threshold_ratio=0.8
+    threshold_ratio=threshold_ratio
 )
 ```
 
