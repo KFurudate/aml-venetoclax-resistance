@@ -103,7 +103,7 @@ summary = summarize_bootstrap_coefficients(
 import pandas as pd
 
 # Load X (processed) with sample IDs as index
-X = pd.read_csv("data/X_processed_sample.csv", index_col=0)
+X = pd.read_csv("data/X_sample.csv", index_col=0)
 
 # Load y and align to X.index
 y_df = pd.read_csv("data/y_sample.csv")  # columns: sample_id, label
