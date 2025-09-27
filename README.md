@@ -13,23 +13,24 @@ The goal is to provide transparency and reproducibility for the main analyses.
 ## Contents
 
 #### `bootstrap_iteration.py`
-Runs one bootstrap iteration of L1-regularized logistic regression:
-- Resamples data, adds noise, fits model.
-- Returns: selection mask (`|coef| > epsilon`), coefficients, and OOB indices.
+Runs one bootstrap iteration of **L1-regularized logistic regression**:  
+- Resamples data, adds noise, fits model.  
+- Returns: selection mask (`|coef| > epsilon`), coefficients, and OOB indices.
 
 ---
 
 #### `fit_lasso_logistic_bootstrap.py`
-Runs multiple bootstrap iterations in parallel:
-- Aggregates coefficients into a matrix `(n_bootstrap × n_features)`.
-- Returns: `coef_matrix` and OOB indices list.
+Runs multiple bootstrap iterations in parallel:  
+- Aggregates coefficients into a matrix `(n_bootstrap × n_features)`.  
+- Returns: `coef_matrix` and OOB indices list.
 
 ---
 
 #### `summarize_bootstrap_coefficients.py`
-Summarizes bootstrap results:
-- Computes feature selection frequency, mean, and std.
-- Returns: selected features and summary stats.
+Summarizes bootstrap results:  
+- Computes feature selection frequency, mean, and std.  
+- Returns: selected features and summary stats.
+
 
 ---
 
