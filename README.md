@@ -30,9 +30,9 @@ params = {
     'max_iter': 10000,
 }
 
-coef_matrix, oob_indices_list = fit_lasso_logistic_bootstrap(
+coef_matrix, oob_indices = fit_lasso_logistic_bootstrap(
     X.values, 
-    y_inverse, 
+    y, 
     gene_names=gene_names,        
     n_bootstrap=n_bootstrap,
     epsilon=0.01,
