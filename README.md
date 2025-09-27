@@ -70,4 +70,12 @@ summary = summarize_bootstrap_coefficients(
 )
 ```
 
+### Data Assumptions
+
+- **X**: A numeric matrix where  
+  - Rows represent **samples**  
+  - Columns represent **features (genes)**  
+  - Values are **TPM-normalized**, then **log-transformed**, and finally **Z-score standardized** across samples.
+
+- **y**: A binary list or array of labels (`0` and `1`), corresponding to the sample classes.
 
