@@ -113,6 +113,3 @@ print(X.shape, y.shape)
 print(X.head(3))
 print(y[:10])
 ```
-
-- **y**: A binary list or array of labels (`0` and `1`), corresponding to the sample classes.
-
